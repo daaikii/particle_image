@@ -1,14 +1,13 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import Plane from '../obj/Plane'
+import { OrbitControls, Stats } from '@react-three/drei'
+import Particle from '../object3D/Particles'
 
 const TCanvas = () => {
   return (
-    <Canvas >
-      <ambientLight />
-      <spotLight position={[10, 10, 10]} />
-      <pointLight position={[-10, -10, -10]} />
-      <Plane />
+    <Canvas camera={{ fov: 50, near: 1, far: 1000, position: [0, 0, 300] }}>
+      <color attach="background" args={[0, 0, 0]} />
+      <Particle />
+      <Stats />
       <OrbitControls />
     </Canvas>
   )
